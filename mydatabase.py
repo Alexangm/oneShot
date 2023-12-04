@@ -24,6 +24,18 @@ class Database:
         cursor.execute(sql, val)
         Database.db.commit()
 
+    
+    @staticmethod
+    def isEmpty():
+        sql = f'SELECT * FROM words'
+        cursor = Database.db.cursor()
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        if(result):
+            return False
+        else:
+            return True
+    
 
     @staticmethod
     def alterTableProfile():
