@@ -16,6 +16,7 @@ from edit import Edit
 #Window.size = (480, 800)
 #Window.size = (480, 912)
 Window.softinput_mode="below_target"
+print('Tamanho da tela', Window.size)
 
 class Interface(ScreenManager):
     def __init__(self, **kwargs):
