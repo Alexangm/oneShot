@@ -43,7 +43,6 @@ Builder.load_string("""
                     text: 'Acesse sua conta'
                     font_size: '16sp'
                     halign: 'center'
-                    font_name: 'robotoblack.ttf'
                     text_size: self.size
                     size_hint_y: None
                     size: self.texture_size
@@ -86,7 +85,6 @@ Builder.load_string("""
 
                 SignupText:
                     text: ' Cadastre-se'
-                    font_name: 'robotoblack.ttf'
                     size_hint_x: None
                     size: self.texture_size
                     on_press: root.switchToSignUp()                            
