@@ -22,7 +22,6 @@ def DrawQuizOptions():
 
 
 def API_request(word):
-def API_request(word):
     dados = []
     if word == 'Accuse' or word == 'accuse':
         dados["word"] = 'Accuse'
