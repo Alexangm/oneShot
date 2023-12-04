@@ -42,7 +42,6 @@ Builder.load_string("""
                     color: 1, 1, 1, 1   
                     halign: 'left'
                     text_size: self.size 
-                    font_name: 'robotoblack.ttf'
                     size: self.texture_size
                 CTextInput:
                     id: email
@@ -87,7 +86,6 @@ Builder.load_string("""
                     color: 0.3, 0, 0, 1   
                     haling: 'left'
                     text_size: self.size 
-                    font_name: 'robotolight.ttf'
 """)
 
 
