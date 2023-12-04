@@ -105,7 +105,6 @@ Builder.load_string("""
                     color: 0.3, 0, 0, 1   
                     haling: 'left'
                     text_size: self.size 
-                    font_name: 'robotolight.ttf'
 
 <Popup>:
     title: 'Tem certeza que deseja apagar a conta?'
@@ -123,7 +122,6 @@ Builder.load_string("""
                 color: 1, 1, 1, 1   
                 haling: 'left'
                 font_size: '20sp'
-                font_name: 'robotolight.ttf'
             CTextInput:
                 id: confirmPassword
                 hint_text: 'senha'
@@ -138,7 +136,6 @@ Builder.load_string("""
                 color: 0.9, 0.9, 0.9, 1   
                 haling: 'left'
                 font_size: '16sp'
-                font_name: 'robotolight.ttf'                 
         BoxLayout:
             size_hint_y: 0.3
             orientation: 'horizontal'
