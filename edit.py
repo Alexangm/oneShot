@@ -46,7 +46,6 @@ Builder.load_string("""
                     color: 1, 1, 1, 1   
                     halign: 'center'
                     text_size: self.size 
-                    font_name: 'robotoblack.ttf'
                     size: self.texture_size
                 CTextInput:
                     id: nome
