@@ -8,11 +8,9 @@ from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
 
 import random
-import re
 
 from utils import API_request, DrawQuizOptions, DrawQuiz, Draw, traduzir_com_linguee
 from sqlite3 import connect
-from datetime import date
 from custom_widgets import QButton
 from styles import Styles
 
@@ -533,20 +531,20 @@ class Database:
 
 #UTILS
 def Draw():
-    seed_day = int(f'{date.today().year}{date.today().month}{date.today().day}')
+    seed_day = 20231204
     random.seed(seed_day)
     return sorted(random.sample(range(531), 8))
 
 
 def DrawQuiz():
-    seed_yesterday = int(f'{date.today().year}{date.today().month}{date.today().day-1}')
+    seed_yesterday = 20231204
     random.seed(seed_yesterday)
     numeros = sorted(random.sample(range(566), 8))
     return [numeros[0], numeros[1], numeros[3], numeros[5], numeros[7]]
 
 
 def DrawQuizOptions():
-    seed_yesterday = int(f'{date.today().year}{date.today().month}{date.today().day-1}')
+    seed_yesterday = 20231204
     random.seed(seed_yesterday)
     lista = random.sample(range(423), 15)
     return lista
@@ -742,22 +740,6 @@ Builder.load_string("""
                 on_press: root.deleteAcc()
                 size_hint: 0.5, 0.7           
 """)
-
-
-def is_valid_email(email):
-    regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
-    if re.match(regex, email):
-        return True
-    else:
-        return False
-
-
-def is_valid_password(password):
-    regex = r'^.{8,}$'
-    if re.match(regex, password):
-        return True
-    else:
-        return False
 
 
 class popup(Popup):
@@ -2564,23 +2546,7 @@ Builder.load_string("""
                     font_name: 'robotolight.ttf'
 """)
 
-
-def is_valid_email(email):
-    regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
-    if re.match(regex, email):
-        return True
-    else:
-        return False
-
-
-def is_valid_password(password):
-    regex = r'^.{8,}$'
-    if re.match(regex, password):
-        return True
-    else:
-        return False
     
-
 class Signup(Screen):
     def on_pre_enter(self, *args):
         self.ids.email.text = ''
@@ -2597,21 +2563,19 @@ class Signup(Screen):
         if (email == '' or password == '' or name =='' or cpassword == ''):
             self.ids.msg.text = 'Informações incompletas!'
         else: 
-            if(is_valid_email(email)):
-                if(is_valid_password(password)):
-                    if(password == cpassword):
-                        if(Database.isValid(email)):
-                            Database.insertdata(email, name, password)
-                            self.manager.transition.direction = 'right'
-                            self.manager.current = 'login'
-                        else:
-                            self.ids.msg.text = 'Email já cadastrado!'
+            if(len(password) > 7):
+                if(password == cpassword):
+                    if(Database.isValid(email)):
+                        Database.insertdata(email, name, password)
+                        self.manager.transition.direction = 'right'
+                        self.manager.current = 'login'
                     else:
-                        self.ids.msg.text = 'As senhas não coincidem!'
+                        self.ids.msg.text = 'Email já cadastrado!'
                 else:
-                    self.ids.msg.text = 'A senha deve ter pelo menos 8 caracteres.'   
+                    self.ids.msg.text = 'As senhas não coincidem!'
             else:
-                self.ids.msg.text = 'O email não é válido!'
+                self.ids.msg.text = 'A senha deve ter pelo menos 8 caracteres.'   
+            
 
 
     def name_check(self, text_input):
@@ -2712,13 +2676,6 @@ Builder.load_string("""
 """)
 
 
-def is_valid_email(email):
-    regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
-    if re.match(regex, email):
-        return True
-    else:
-        return False
-
 
 class Login(Screen):
     email = None
@@ -2753,17 +2710,15 @@ class Login(Screen):
         if (Login.email == '' or Login.password == ''):
             self.ids.msg.text = 'Informações incompletas!'    
         else:
-            if (is_valid_email(Login.email)):
-                if(Database.isExist(Login.email, Login.password)):
-                    #self.ids.msg.text = 'Logado com sucesso!'
-                    Login.id_user = Database.selectIdFromEmail(Login.email)
-                    Login.nome = Database.selectNameFromEmail(Login.email)
-                    self.manager.transition.direction = 'left'
-                    self.manager.current = 'Home' 
-                else:
-                    self.ids.msg.text = 'Email e/ou senha incorretos!'
+            if(Database.isExist(Login.email, Login.password)):
+                #self.ids.msg.text = 'Logado com sucesso!'
+                Login.id_user = Database.selectIdFromEmail(Login.email)
+                Login.nome = Database.selectNameFromEmail(Login.email)
+                self.manager.transition.direction = 'left'
+                self.manager.current = 'Home' 
             else:
-                self.ids.msg.text = 'Email inválido!'
+                self.ids.msg.text = 'Email e/ou senha incorretos!'
+            
 
 
     def switchToSignUp(self):
