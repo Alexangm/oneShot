@@ -152,6 +152,8 @@ def API_request(word):
                                 '"um golpe afortunado de serendipidade"',
                                 '3. A capacidade ou fenômeno de encontrar coisas valiosas ou agradáveis não procuradas.',
                                 '"o elemento de serendipidade na invenção do raio X"']
+    return dados
+
 
 def spans(word):
     if word == 'Accuse' or word == 'accuse':
