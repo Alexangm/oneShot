@@ -46,7 +46,6 @@ Builder.load_string("""
                 Label:
                     text: 'Perfil'
                     halign: 'center'
-                    font_name: 'robotomedium.ttf'
                     font_size: '40sp'
                     size_hint: 1.0, 1.0
                 AnchorLayout:
@@ -90,7 +89,6 @@ Builder.load_string("""
                             id: pnome
                             text: '    Magnus Carlsen'
                             halign: 'left'
-                            font_name: 'robotolight.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '34sp'
@@ -100,7 +98,6 @@ Builder.load_string("""
                             id: pemail
                             text: '    MagzyBogues'
                             halign: 'left'
-                            font_name: 'robotolightitalic.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '20sp' 
@@ -154,7 +151,6 @@ Builder.load_string("""
                             id: lb1
                             text: 'Favoritas (17)'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '24sp'
@@ -184,7 +180,6 @@ Builder.load_string("""
                             id: lb2
                             text: 'Já conhecia (27)'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '24sp'
@@ -216,7 +211,6 @@ Builder.load_string("""
                             id: lb3
                             text: 'Conheci aqui (34)'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '24sp'
@@ -248,7 +242,6 @@ Builder.load_string("""
                             id: lb4
                             text: 'Já sabia o significado (18)'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '24sp'
@@ -279,7 +272,6 @@ Builder.load_string("""
                             id: lb5
                             text: 'Aprendi aqui (11)'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '24sp'
@@ -311,7 +303,6 @@ Builder.load_string("""
                             id: lb6
                             text: 'Quiz acertadas (36)'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '24sp'
@@ -343,7 +334,6 @@ Builder.load_string("""
                             id: lb7
                             text: 'Quiz erradas (20)'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '24sp'
