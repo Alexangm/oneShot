@@ -239,7 +239,6 @@ Builder.load_string("""
                         halign: 'center'
                         valign: 'center'
                         color: root.divT 
-                        font_name: 'robotomedium.ttf'
                         font_size: '55sp'
                         size_hint: 1.0, 1.0
 
@@ -255,7 +254,6 @@ Builder.load_string("""
                         halign: 'center'
                         valign: 'center'
                         color: root.divT 
-                        font_name: 'robotomedium.ttf'
                         font_size: '30sp'
                         size_hint: 1.0, 1.0
                 
