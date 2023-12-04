@@ -96,7 +96,6 @@ Builder.load_string("""
                             id: p0
                             text: 'abandoned'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '36sp'
@@ -131,7 +130,6 @@ Builder.load_string("""
                             id: p1
                             text: 'abandoned'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '36sp'
@@ -167,7 +165,6 @@ Builder.load_string("""
                             id: p2
                             text: 'abandoned'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '36sp'
@@ -203,7 +200,6 @@ Builder.load_string("""
                             id: p3
                             text: 'abandoned'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '36sp'
@@ -239,7 +235,6 @@ Builder.load_string("""
                             id: p4
                             text: 'abandoned'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '36sp'
@@ -275,7 +270,6 @@ Builder.load_string("""
                             id: p5
                             text: 'abandoned'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '36sp'
@@ -311,7 +305,6 @@ Builder.load_string("""
                             id: p6
                             text: 'abandoned'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '36sp'
@@ -347,7 +340,6 @@ Builder.load_string("""
                             id: p7
                             text: 'abandoned'
                             halign: 'left'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '36sp'
