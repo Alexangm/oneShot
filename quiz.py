@@ -55,7 +55,6 @@ Builder.load_string("""
                     id: titulo
                     text: 'Quiz'
                     halign: 'center'
-                    font_name: 'robotoblack.ttf'
                     font_size: '40sp'
                     size_hint: 1.0, 1.0
                 AnchorLayout:
@@ -97,7 +96,6 @@ Builder.load_string("""
                             text: '            Qual a tradução de:'
                             halign: 'center'
                             valign: 'center'
-                            font_name: 'robotomedium.ttf'
                             font_size: '28sp'
                             size_hint: 1.0, 1.0
                         Label:
@@ -105,7 +103,6 @@ Builder.load_string("""
                             text: '4/5'
                             halign: 'right'
                             valign: 'top'
-                            font_name: 'robotomedium.ttf'
                             font_size: '22sp'
                             size_hint: 0.2, 1.0
                 BoxLayout:
@@ -117,7 +114,6 @@ Builder.load_string("""
                         text: 'Amiable'
                         halign: 'center'
                         valign: 'center'
-                        font_name: 'robotomedium.ttf'
                         font_size: '50sp'
                         size_hint: 1.0, 1.0
                 BoxLayout:
