@@ -20,8 +20,7 @@ Builder.load_string("""
 <CTextInput>:
     padding: dp(15)
     background_normal: ''
-    background_color: self.bg_color                        
-    font_name: 'robotolight.ttf'
+    background_color: self.bg_color
     font_size: '16sp'
                     
 <SignupText>:
@@ -34,7 +33,6 @@ Builder.load_string("""
     on_press: root.pressed()
     on_release: root.released()
     font_size: dp(30)
-    font_name: 'robotomedium.ttf'
                     
 <QButton>:
     background_color: self.menu_color
@@ -42,7 +40,6 @@ Builder.load_string("""
     on_press: root.pressed()
     on_release: root.released()
     font_size: dp(30)
-    font_name: 'robotomedium.ttf'
     size_hint: (None, None)
     size: (432, 40)
     halign: 'center'
@@ -65,7 +62,6 @@ Builder.load_string("""
                 id: p7
                 text: 'abandoned'
                 halign: 'left'
-                font_name: 'robotomedium.ttf'
                 text_size: self.width, None
                 size: self.texture_size
                 font_size: '36sp'
