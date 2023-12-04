@@ -9,7 +9,6 @@ from kivy.core.window import Window
 
 import random
 
-from utils import API_request, DrawQuizOptions, DrawQuiz, Draw, traduzir_com_linguee
 from sqlite3 import connect
 from custom_widgets import QButton
 from styles import Styles
