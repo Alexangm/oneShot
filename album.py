@@ -61,7 +61,6 @@ Builder.load_string("""
                     id: titulo
                     text: 'Quiz'
                     halign: 'center'
-                    font_name: 'robotoblack.ttf'
                     font_size: '40sp'
                     size_hint: 1.0, 1.0
                 AnchorLayout:
