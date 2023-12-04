@@ -284,7 +284,7 @@ class Palavra(Screen):
             Palavra.significado_pt = Palavra.significado_pt + a + '\n'
         
         Palavra.significado_en = ''
-        for b in Home.significado_en.values():
+        for b in Home.significado_en:
             Palavra.significado_en = Palavra.significado_en + b + '\n'
         
         Palavra.audio = Home.audio
