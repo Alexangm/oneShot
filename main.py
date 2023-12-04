@@ -8,11 +8,9 @@ from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
 
 import random
-import requests
 import re
 
 from utils import API_request, DrawQuizOptions, DrawQuiz, Draw, traduzir_com_linguee
-from bs4 import BeautifulSoup
 from mysql.connector import connect, ClientFlag
 from datetime import date
 from custom_widgets import QButton
@@ -539,9 +537,6 @@ class Database:
             return 3
 
 
-
-
-
 #UTILS
 def Draw():
     seed_day = int(f'{date.today().year}{date.today().month}{date.today().day}')
@@ -564,51 +559,24 @@ def DrawQuizOptions():
 
 
 def API_request(word):
-    url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
-    response = requests.get(url + word)
-    if response.status_code == 200:
-        api_dados = response.json()
-        dados = {}
-        dado = api_dados[0]
-        dados["word"] = dado["word"]
-        for phonetics in dado['phonetics']:
-            if (phonetics['audio'] == ''):
-                pass
-            dados["audios"] = phonetics['audio']
-        dados["definitions"] = {}
-        dados["synonyms"] = {}
-        dados["antonyms"] = {}
-        i = 0
-        for definicao in dado['meanings'][0]['definitions']:
-            i += 1
-            dados["definitions"][str(i)] = str(i) + '. ' + definicao['definition']
-        traducao = traduzir_com_linguee(word) 
-        dados["traducao"] = traducao      
-        dados["portugues"] = spans(traducao)
-        return dados
-    else:
-        print(word, "Não encontrada!")
-        return 0
-
+    #url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
+    #response = requests.get(url + word)
+    #if response.status_code == 200:
+    #api_dados = response.json()
+    dados = {}
+    #dado = api_dados[0]
+    dados["word"] = 'palavra'
+    dados["audios"] = 'audio'
+    dados["definitions"] = 'definicao'
+    dados["synonyms"] = 'sinonimo'
+    dados["antonyms"] = 'antonimo'
+    dados["definitions"] = {'definition':'oasioas', }
+    dados["traducao"] = 'traducao'      
+    dados["portugues"] = 'significado em portugues'
+    return dados
 
 def spans(word):
-    cword = remover_acentos_manual(word)
-    url = f"https://www.dicio.com.br/{cword}"
-    resposta = requests.get(url)
-    dicionario = []
-    if resposta.status_code == 200:
-        soup = BeautifulSoup(resposta.content, "html.parser")
-        elemento_p = soup.find("p", class_="significado")
-        spans = elemento_p.find_all("span")
-        i = 0
-        for span in spans:
-            span_text = span.text.strip()
-            if span_text[-1] != ']':
-                if span_text[0].islower():
-                    dicionario.append(f'({span_text})')
-                else:
-                    i += 1
-                    dicionario.append(f'{i}. {span_text}')
+    dicionario = ['muito siginficiado foda', word]
     return dicionario
 
 
@@ -626,38 +594,11 @@ def remover_acentos_manual(palavra):
 
     
 def traduzir_com_linguee(word):
-    url = f"https://dictionary.cambridge.org/pt/dicionario/ingles-portugues/{word}"
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-    }
-
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()  # Verifica se houve um erro HTTP na resposta
-
-        soup = BeautifulSoup(response.text, 'html.parser')
-        elemento_traducao = soup.find(class_='trans dtrans dtrans-se')
-
-        if elemento_traducao:
-            traducao = elemento_traducao.get_text(strip=True)
-            return traducao.split(',')[0]
-        else:
-            return f"Palavra não encontrado."
-    except requests.exceptions.RequestException as err:
-        return f"Erro durante a requisição: {str(err)}"
+    return word + 'traduzidinha'
     
 
 def API_audio(word):
-    url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
-    response = requests.get(url + word)
     raudio = -1
-    if response.status_code == 200:
-        api_dados = response.json()
-        dado = api_dados[0]
-        for phonetics in dado['phonetics']:
-            if (phonetics['audio'] == ''):
-                pass
-            raudio = phonetics['audio']
     return raudio
 
 
