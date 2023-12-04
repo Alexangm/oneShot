@@ -11,7 +11,7 @@ import random
 import re
 
 from utils import API_request, DrawQuizOptions, DrawQuiz, Draw, traduzir_com_linguee
-from mysql.connector import connect, ClientFlag
+from sqlite3 import connect
 from datetime import date
 from custom_widgets import QButton
 from styles import Styles
@@ -21,24 +21,18 @@ class Database:
     db=None
     @staticmethod
     def ConnectDatabase():
-        Database.db = connect(
-            host="english.mysql.database.azure.com",
-            user="alexgm",
-            password="3ngl1sh4PP",
-            database="db_english",
-            client_flags=ClientFlag.SSL,
-            ssl_ca="digicertglobalrootg2.crt.pem"
-        )
+        Database.db = connect('dbenglish.db')
         cursor =  Database.db.cursor()
-        cursor.execute("CREATE TABLE IF NOT EXISTS users(id_user INTEGER PRIMARY KEY AUTO_INCREMENT, email VARCHAR(255) NOT NULL, name text NOT NULL, password VARCHAR(255) NOT NULL)")
-        cursor.execute("CREATE TABLE IF NOT EXISTS words(id_word INTEGER PRIMARY KEY AUTO_INCREMENT, word VARCHAR(255) NOT NULL)")
-        cursor.execute("CREATE TABLE IF NOT EXISTS profile(id_user INTEGER, id_word INTEGER, fl_conhecia INTEGER, fl_favorita integer, fl_sabia integer DEFAULT 0)")
-        cursor.execute("CREATE TABLE IF NOT EXISTS palavrasPortugues(id_word INTEGER PRIMARY KEY AUTO_INCREMENT, word VARCHAR(255) NOT NULL)")
-        cursor.execute("CREATE TABLE IF NOT EXISTS palavrasQuiz(id_user INTEGER, id_word INTEGER, fl_acerto INTEGER)")
+        cursor.execute("CREATE TABLE IF NOT EXISTS users(id_user integer PRIMARY KEY, email text NOT NULL, name text NOT NULL, password text NOT NULL)")
+        cursor.execute("CREATE TABLE IF NOT EXISTS words(id_word integer PRIMARY KEY, word text NOT NULL)")
+        cursor.execute("CREATE TABLE IF NOT EXISTS profile(id_user integer, id_word integer, fl_conhecia integer, fl_favorita integer, fl_sabia integer DEFAULT 0)")
+        cursor.execute("CREATE TABLE IF NOT EXISTS palavrasPortugues(id_word integer PRIMARY KEY, word text NOT NULL)")
+        cursor.execute("CREATE TABLE IF NOT EXISTS palavrasQuiz(id_user integer, id_word integer PRIMARY KEY, fl_acerto integer)")
         Database.db.commit()
-        print('conectou lindamente')
+        print('pasosu do commit')
         print("Conectado com sucesso!")
 
+    
     @staticmethod
     def droppalavrasQuiz():
         sql = "DROP TABLE palavrasQuiz"
