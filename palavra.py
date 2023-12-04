@@ -102,7 +102,6 @@ Builder.load_string("""
                             text: 'Serendipidade'
                             halign: 'left'
                             valign: 'center'
-                            font_name: 'robotomedium.ttf'
                             text_size: self.width, None
                             size: self.texture_size
                             font_size: '36sp'
@@ -138,7 +137,6 @@ Builder.load_string("""
                                 height: self.texture_size[1]
                                 text_size: self.width, None
                                 padding: [dp(30),dp(10)]
-                                font_name: 'robotomedium.ttf'  
                                 font_size: '24sp'
                     BoxLayout:
                         size_hint_y: 0.07
